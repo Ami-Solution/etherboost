@@ -1194,7 +1194,7 @@ module.exports = (config) => {
 /* eslint-env browser */
 
 module.exports = {
-  homeURL: 'https://amisolution.github.io/etherboost',
+  homeURL: 'https://ami-solution.github.io/etherboost',
   contractTokenEther: 'smart_contract/etherdelta.sol',
   contractToken: 'smart_contract/token.sol',
   contractReserveToken: 'smart_contract/reservetoken.sol',
