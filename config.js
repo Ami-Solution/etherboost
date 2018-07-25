@@ -8,7 +8,7 @@ module.exports = {
   contractToken: 'smart_contract/token.sol',
   contractReserveToken: 'smart_contract/reservetoken.sol',
   contractDecentrExAddrs: [
-    { "addr": "0x8d12a197cb00d4747a1fe03395095ce2a5cc6819", "info": "Deployed 02/09/2017 -- THE CURRENT SMART CONTRACT" },
+    { addr: '0x8d12a197cb00d4747a1fe03395095ce2a5cc6819', info: 'Deployed 02/09/2017 -- THE CURRENT SMART CONTRACT' },
     { addr: '0xbca13cbebff557143e8ad089192380e9c9a58c70', info: 'Deployed 08/10/2017' }
   ],
   ethTestnet: false,
