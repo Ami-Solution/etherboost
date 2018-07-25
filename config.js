@@ -23,7 +23,7 @@ module.exports = {
   gasOrder: 250000,
   minOrderSize: 0.001,
   ordersOnchain: false,
-  apiServer: 'https://api.forkdelta.com/',
+  apiServer: 'https://api.etherdelta.com/',
   userCookie: 'EtherDelta',
   eventsCacheCookie: 'EtherDelta_eventsCache',
   ordersCacheCookie: 'EtherDelta_ordersCache',
@@ -151,6 +151,6 @@ module.exports = {
     { token: 'VSL', base: 'ETH' },
     { token: 'WINGS', base: 'ETH' },
     { token: 'XAUR', base: 'ETH' },
-    { token: 'XRL', base: 'ETH' }
+    { token: 'XRL', base: 'ETH' },
   ],
 };
