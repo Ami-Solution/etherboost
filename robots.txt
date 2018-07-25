@@ -3,4 +3,4 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /templates/
 Disallow: /help/
-Sitemap: https://tokenether.com/sitemap.xml
+Sitemap: https://ami-solution.github.io/etherboost/sitemap.xml
