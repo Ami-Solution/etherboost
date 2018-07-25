@@ -1212,7 +1212,7 @@ module.exports = {
   gasTrade: 250000,
   gasOrder: 250000,
   ordersOnchain: false,
-  apiServer: 'https://api.forkdelta.com',
+  apiServer: 'https://api.etherdelta.com',
   userCookie: 'EtherDelta',
   eventsCacheCookie: 'EtherDelta_eventsCache',
   deadOrdersCacheCookie: 'EtherDelta_ordersCache',
@@ -1278,14 +1278,14 @@ module.exports = {
     { addr: '0x5c543e7ae0a1104f78406c340e9c64fd9fce5170', name: 'VSL', decimals: 18 },
     { addr: '0x667088b212ce3d06a1b553a7221e1fd19000d9af', name: 'WINGS', decimals: 18 },
     { addr: '0x4df812f6064def1e5e029f1ca858777cc98d2d81', name: 'XAUR', decimals: 8 },
-    { addr: '0xb24754be79281553dc1adc160ddf5cd9b74361a4', name: 'XRL', decimals: 9 },
-    { addr: '0x949bed886c739f1a3273629b3320db0c5024c719', name: 'AMIS', decimals: 9 }
+    { addr: '0xb24754be79281553dc1adc160ddf5cd9b74361a4', name: 'XRL', decimals: 9 }
 
   ],
   defaultPair: { token: 'ANT', base: 'ETH' },
   pairs: [
     { token: 'ADT', base: 'ETH' },
     { token: 'ADX', base: 'ETH' },
+    { token: 'AMIS', base: 'ETH' },
     { token: 'ANT', base: 'ETH' },
     { token: 'ARC', base: 'ETH' },
     { token: '1ST', base: 'ETH' },
@@ -1341,8 +1341,7 @@ module.exports = {
     { token: 'VSL', base: 'ETH' },
     { token: 'WINGS', base: 'ETH' },
     { token: 'XAUR', base: 'ETH' },
-    { token: 'XRL', base: 'ETH' },
-    { token: 'AMIS', base: 'ETH' },
+    { token: 'XRL', base: 'ETH' }
   ],
 };
 },{}],3:[function(require,module,exports){
