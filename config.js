@@ -2,8 +2,9 @@
 
 module.exports = {
   homeURL: 'https://ami-solution.github.io/etherboost',
-  contractEtherDelta: 'smart_contract/etherdelta.sol',
-  contractDecentrEx: 'smart_contract/tokenether.sol',
+  /* contractEtherDelta: 'smart_contract/etherdelta.sol',  */
+  /* contractDecentrEx: 'smart_contract/tokenether.sol', */
+  contractDecentrEx: 'smart_contract/etherdelta.sol',
   contractToken: 'smart_contract/token.sol',
   contractReserveToken: 'smart_contract/reservetoken.sol',
   contractDecentrExAddrs: [
