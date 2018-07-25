@@ -1194,12 +1194,12 @@ module.exports = (config) => {
 /* eslint-env browser */
 
 module.exports = {
-  homeURL: 'https://tokenether.github.io',
-  contractTokenEther: 'smart_contract/TokenEther.sol',
+  homeURL: 'https://amisolution.github.io/etherboost',
+  contractTokenEther: 'smart_contract/etherdelta.sol',
   contractToken: 'smart_contract/token.sol',
   contractReserveToken: 'smart_contract/reservetoken.sol',
   contractTokenEtherAddrs: [
-    { addr: '0xbca13cbebff557143e8ad089192380e9c9a58c70', info: 'Deployed 08/10/2017' },
+    { addr: '0x8d12A197cB00D4747a1fe03395095ce2A5CC6819', info: 'Deployed 08/10/2017' },
   ],
   ethTestnet: false,
   ethProvider: 'http://localhost:8545',
@@ -1212,16 +1212,17 @@ module.exports = {
   gasTrade: 250000,
   gasOrder: 250000,
   ordersOnchain: false,
-  apiServer: 'https://tokenether.github.io',
-  userCookie: 'TokenEther',
-  eventsCacheCookie: 'TokenEther_eventsCache',
-  deadOrdersCacheCookie: 'TokenEther_deadOrdersCache',
-  ordersCacheCookie: 'TokenEther_ordersCache',
+  apiServer: 'https://api.forkdelta.com',
+  userCookie: 'EtherDelta',
+  eventsCacheCookie: 'EtherDelta_eventsCache',
+  deadOrdersCacheCookie: 'EtherDelta_ordersCache',
+  ordersCacheCookie: 'EtherDelta_ordersCache',
   etherscanAPIKey: 'SCYVG55I4EYS4JJ82NYMV87MGDGVNNZJ49',
     tokens: [
     { addr: '0x0000000000000000000000000000000000000000', name: 'ETH', decimals: 18 },
     { addr: '0xd0d6d6c5fe4a677d343cc433536bb717bae167dd', name: 'ADT', decimals: 9 },
     { addr: '0x4470bb87d77b963a013db939be332f927f2b992e', name: 'ADX', decimals: 4 },
+    { addr: '0x949bed886c739f1A3273629b3320db0C5024c719', name: 'AMIS', decimals: 9 },
     { addr: '0x960b236a07cf122663c4303350609a66a7b288c0', name: 'ANT', decimals: 18 },
     { addr: '0xac709fcb44a43c35f0da4e3163b117a17f3770f5', name: 'ARC', decimals: 18 },
     { addr: '0xaf30d2a7e90d7dc361c8c4585e9bb7d2f6f15bc7', name: '1ST', decimals: 18 },
@@ -1349,7 +1350,7 @@ module.exports = {
 
 module.exports = {
   homeURL: 'http://localhost:8080',
-  contractTokenEther: 'smart_contract/TokenEther.sol',
+  contractTokenEther: 'smart_contract/etherdelta.sol',
   contractToken: 'smart_contract/token.sol',
   contractReserveToken: 'smart_contract/reservetoken.sol',
   contractTokenEtherAddrs: [
@@ -1434,7 +1435,7 @@ function TokenEther() {
   this.pendingTransactions = [];
   this.defaultdecimals = new BigNumber(1000000000000000000);
   this.language = 'en';
-  this.minOrderSize = 0.01;
+  this.minOrderSize = 0.001;
   this.messageToSend = undefined;
   this.blockTimeSnapshot = { blockNumber: 3154928, date: new Date('Feb-10-2017 01:40:47') }; // default snapshot
   this.translator = undefined;
@@ -1507,7 +1508,7 @@ TokenEther.prototype.txError = function txError(err) {
     if (this.connection.connection === 'RPC') {
       if (balance < 0.005) {
         this.alertError(
-          `You tried to send an Ethereum transaction but there was an error. Your wallet's ETH balance (${balance} ETH) is not enough to cover the gas cost (Ethereum network fee). TokenEther sends 0.005 ETH with each transaction. This is an overestimate and the excess will get refunded to you. It's a good idea to send more than 0.005 so you can pay for not only this transaction, but also future transactions you do on TokenEther. The gas has to come directly from your Wallet (TokenEther has no physical way of paying gas from your deposited ETH).`);
+          `You tried to send an Ethereum transaction but there was an error. Your wallet's ETH balance (${balance} ETH) is not enough to cover the gas cost (Ethereum network fee). TokenEther sends 0.005 ETH with each transaction. This is an overestimate and the excess will get refunded to you. It's a good idea to send more than 0.005 so you can pay for not only this transaction, but also future transactions you do on etherboost. The gas has to come directly from your Wallet (etherboost has no physical way of paying gas from your deposited ETH).`);
         ga('send', {
           hitType: 'event',
           eventCategory: 'Error',
@@ -1540,7 +1541,7 @@ TokenEther.prototype.txError = function txError(err) {
         });
       } else if (balance < 0.005) {
         this.alertError(
-          `You tried to send an Ethereum transaction but there was an error. Your wallet's ETH balance (${balance} ETH) is not enough to cover the gas cost (Ethereum network fee). TokenEther sends 0.005 ETH with each transaction. This is an overestimate and the excess will get refunded to you. It's a good idea to send more than 0.005 so you can pay for not only this transaction, but also future transactions you do on TokenEther. The gas has to come directly from your Wallet (TokenEther has no physical way of paying gas from your deposited ETH).`);
+          `You tried to send an Ethereum transaction but there was an error. Your wallet's ETH balance (${balance} ETH) is not enough to cover the gas cost (Ethereum network fee). etherboost sends 0.005 ETH with each transaction. This is an overestimate and the excess will get refunded to you. It's a good idea to send more than 0.005 so you can pay for not only this transaction, but also future transactions you do on etherboost. The gas has to come directly from your Wallet (etherboost has no physical way of paying gas from your deposited ETH).`);
         ga('send', {
           hitType: 'event',
           eventCategory: 'Error',
@@ -1548,7 +1549,7 @@ TokenEther.prototype.txError = function txError(err) {
         });
       } else {
         this.alertError(
-          "You tried to send an Ethereum transaction but there was an error. Make sure you have enough ETH in your wallet to cover the gas cost (Ethereum network fee). TokenEther sends 0.005 ETH with each transaction. This is an overestimate and the excess will get refunded to you. It's a good idea to send more than 0.005 so you can pay for not only this transaction, but also future transactions you do on TokenEther. The gas has to come directly from your Wallet (TokenEther has no physical way of paying gas from your deposited ETH).");
+          "You tried to send an Ethereum transaction but there was an error. Make sure you have enough ETH in your wallet to cover the gas cost (Ethereum network fee). etherboost sends 0.005 ETH with each transaction. This is an overestimate and the excess will get refunded to you. It's a good idea to send more than 0.005 so you can pay for not only this transaction, but also future transactions you do on etherboost. The gas has to come directly from your Wallet (etherboost has no physical way of paying gas from your deposited ETH).");
         ga('send', {
           hitType: 'event',
           eventCategory: 'Error',
@@ -1557,7 +1558,7 @@ TokenEther.prototype.txError = function txError(err) {
       }
     } else {
       this.alertError(
-        "You tried to send an Ethereum transaction but there was an error. Make sure you have enough ETH in your wallet to cover the gas cost (Ethereum network fee). TokenEther sends 0.005 ETH with each transaction. This is an overestimate and the excess will get refunded to you. It's a good idea to send more than 0.005 so you can pay for not only this transaction, but also future transactions you do on TokenEther. The gas has to come directly from your Wallet (TokenEther has no physical way of paying gas from your deposited ETH).");
+        "You tried to send an Ethereum transaction but there was an error. Make sure you have enough ETH in your wallet to cover the gas cost (Ethereum network fee). etherboost sends 0.005 ETH with each transaction. This is an overestimate and the excess will get refunded to you. It's a good idea to send more than 0.005 so you can pay for not only this transaction, but also future transactions you do on etherboost. The gas has to come directly from your Wallet (etherboost has no physical way of paying gas from your deposited ETH).");
       ga('send', {
         hitType: 'event',
         eventCategory: 'Error',
@@ -3501,7 +3502,7 @@ TokenEther.prototype.checkContractUpgrade = function checkContractUpgrade() {
       (this.addrs.length === 1 && this.addrs[0].slice(0, 39) !== '0x0000000000000000000000000000000000000'))
   ) {
     this.alertDialog(
-      '<p>TokenEther has a new smart contract. It is now selected.</p><p>Please use the "Smart Contract" menu to select the old one and withdraw from it.</p><p><a href="javascript:;" class="btn btn-default" onclick="alertify.closeAll(); bundle.TokenEther.displayHelp(\'smartContract\')">Smart contract changelog</a></p>');
+      '<p>etherboost has a new smart contract. It is now selected.</p><p>Please use the "Smart Contract" menu to select the old one and withdraw from it.</p><p><a href="javascript:;" class="btn btn-default" onclick="alertify.closeAll(); bundle.TokenEther.displayHelp(\'smartContract\')">Smart contract changelog</a></p>');
   }
 };
 TokenEther.prototype.resetCaches = function resetCaches() {
@@ -101460,17 +101461,17 @@ module.exports = {
     es: 'Español',
   },
   title: {
-    en: 'TokenEther',
-    cn: 'TokenEther',
-    fr: 'TokenEther',
-    es: 'TokenEther',
+    en: 'etherboost',
+    cn: 'etherboost',
+    fr: 'etherboost',
+    es: 'etherboost',
   },
   description: {
-    en: 'TokenEther is a decentralized exchange for Ethereum tokens.',
-    cn: 'TokenEther是去中心化的以太坊交易平台。',
-    fr: "TokenEther est une bourse d'échange de jetons ethereum décentralisé.",
-    es: 'TokenEther se ha posicionado como la primera bolsa de cambio de cryptomonedas y symbolicos de la blockchain Ethereum.',
-    // cn:'TokenEther是无中心的以太坊交易平台。'
+    en: 'etherboost is a decentralized exchange for Ethereum tokens.',
+    cn: 'etherboost是去中心化的以太坊交易平台。',
+    fr: "etherboost est une bourse d'échange de jetons ethereum décentralisé.",
+    es: 'etherboost se ha posicionado como la primera bolsa de cambio de cryptomonedas y symbolicos de la blockchain Ethereum.',
+    // cn:'etherboost是无中心的以太坊交易平台。'
   },
   Smart_Contract: {
     en: 'Smart Contract',
@@ -101539,11 +101540,11 @@ module.exports = {
     es: 'Profundidad',
   },
   only_7_days: {
-    en: 'Note: TokenEther will only show transactions from the last 7 days.',
-    cn: 'Note: TokenEther 只会显示近7天的交易记录',
-    // cn:'Note: TokenEther will only show transactions from the last 7 days.'
-    fr: 'Note: TokenEther ne montrera que les 7 derniers jours de transactions.',
-    es: 'Nota Bene: TokenEther sólo mostrará las transacciones de los últimos 7 días.',
+    en: 'Note: etherboost will only show transactions from the last 7 days.',
+    cn: 'Note: etherboost 只会显示近7天的交易记录',
+    // cn:'Note: etherboost will only show transactions from the last 7 days.'
+    fr: 'Note: etherboost ne montrera que les 7 derniers jours de transactions.',
+    es: 'Nota Bene: etherboost sólo mostrará las transacciones de los últimos 7 días.',
   },
 
   announcements: {
@@ -101605,11 +101606,11 @@ module.exports = {
     es: 'Producido por Etherboost',
   },
   TokenEther_desc: {
-    en: 'TokenEther &#8212; decentralized token exchange',
-    cn: 'TokenEther &#8212; 去中心化交易',
-    // cn:'TokenEther &#8212; 无中心交易'
-    fr: 'TokenEther &#8212; échange de jetons décentralisé',
-    es: 'TokenEther &#8212; échange de jetons décentralisé',
+    en: 'etherboost &#8212; decentralized token exchange',
+    cn: 'etherboost &#8212; 去中心化交易',
+    // cn:'etherboost &#8212; 无中心交易'
+    fr: 'etherboost &#8212; échange de jetons décentralisé',
+    es: 'etherboost &#8212; échange de jetons décentralisé',
   },
   etheropt_desc: {
     en: 'EtherOpt &#8212; decentralized options exchange',
@@ -101797,10 +101798,10 @@ module.exports = {
     es: '3 Agosto, 2016',
   },
   aug032016_announcement: {
-    en: 'TokenEther has moved to a new smart contract. Go to the bottom of the page and switch to the old one if you have a balance there you need to withdraw.',
-    cn: 'TokenEther更新了智能合约。如果你要提取余额，请到本页底部转成旧的合约并进行提取。',
-    // cn:'TokenEther迁移到了新的智能合约。如果你要提取余额，请到本页底部转成旧的。'
-    fr: "TokenEther a ete modifié pour un nouveau smart contract. Allez au bas de page et permutez le avec l'ancien s'il reste du solde à retirer.",
+    en: 'etherboost has moved to a new smart contract. Go to the bottom of the page and switch to the old one if you have a balance there you need to withdraw.',
+    cn: 'etherboost更新了智能合约。如果你要提取余额，请到本页底部转成旧的合约并进行提取。',
+    // cn:'etherboost迁移到了新的智能合约。如果你要提取余额，请到本页底部转成旧的。'
+    fr: "etherboost a ete modifié pour un nouveau smart contract. Allez au bas de page et permutez le avec l'ancien s'il reste du solde à retirer.",
   },
   aug302016: {
     en: 'August 30, 2016',
@@ -101809,11 +101810,11 @@ module.exports = {
     es: '30 Agosto 2016',
   },
   aug302016_announcement: {
-    en: 'TokenEther has moved to a new smart contract. Go to the bottom of the page and switch to the old one if you have a balance there you need to withdraw.',
-    cn: 'TokenEther更新了智能合约。如果你要提取余额，请到本页底部转成旧的合约并进行提取。',
-    // cn:'TokenEther迁移到了新的智能合约。如果你要提取余额，请到本页底部转成旧的。'
-    fr: "TokenEther utilise un nouveau smart contract. Allez au bas de page et permutez le avec l'ancien s'il vous reste du solde à retirer.",
-    es: 'TokenEther utiliza un nuevo contrato inteligente.',
+    en: 'etherboost has moved to a new smart contract. Go to the bottom of the page and switch to the old one if you have a balance there you need to withdraw.',
+    cn: 'etherboost更新了智能合约。如果你要提取余额，请到本页底部转成旧的合约并进行提取。',
+    // cn:'etherboost迁移到了新的智能合约。如果你要提取余额，请到本页底部转成旧的。'
+    fr: "etherboost utilise un nouveau smart contract. Allez au bas de page et permutez le avec l'ancien s'il vous reste du solde à retirer.",
+    es: 'etherboost utiliza un nuevo contrato inteligente.',
   },
   new_account: {
     en: 'New account',
@@ -101876,10 +101877,10 @@ module.exports = {
     es: 'Cartera',
   },
   balance_TokenEther: {
-    en: 'TokenEther',
-    cn: 'TokenEther',
-    fr: 'TokenEther',
-    es: 'TokenEther',
+    en: 'etherboost',
+    cn: 'etherboost',
+    fr: 'etherboost',
+    es: 'etherboost',
   },
   amount: {
     en: 'Amount',
@@ -102063,9 +102064,9 @@ module.exports = {
     es: 'Arriba a la izquierda, hay dos menús desplegables para usar para seleccionar el par de divisas para intercambiar.',
   },
   deposit_withdraw_2: {
-    en: 'Under "Balances," you will see your balance for each of the two currencies you selected. This is the balance you have deposited to TokenEther from your Ethereum account.',
+    en: 'Under "Balances," you will see your balance for each of the two currencies you selected. This is the balance you have deposited to etherboost from your Ethereum account.',
     cn: '在“余额”下面，你可以看到两种币的各自的余额，这是从你的以太坊账号充值的余额。',
-    fr: 'Sous "Soldes" vous trouverez le solde pour chacune des deux devises selectionnées. C\'est le solde que vous venez de déposer sur TokenEther depuis votre compte Ethereum',
+    fr: 'Sous "Soldes" vous trouverez le solde pour chacune des deux devises selectionnées. C\'est le solde que vous venez de déposer sur etherboost depuis votre compte Ethereum',
     es: 'En "Saldos" se encuentra el equilibrio para cada una de las dos monedas sélectionnées.',
   },
   deposit_withdraw_3: {
@@ -102075,8 +102076,8 @@ module.exports = {
     es: 'Para depositar, retirar o transferencia, por favor Desplazamiento en la parte inferior de la página. Busque la sección "Ventas.',
   },
   deposit_withdraw_4: {
-    en: 'To deposit, click the "Deposit" tab, pick a token, enter an amount you would like to deposit from your Ethereum account into TokenEther, and click "Deposit."',
-    cn: '充值点“充值”，选择一种币，输入从以太坊账号进入TokenEther的充值数量，再点“充值”。',
+    en: 'To deposit, click the "Deposit" tab, pick a token, enter an amount you would like to deposit from your Ethereum account into etherboost, and click "Deposit."',
+    cn: '充值点“充值”，选择一种币，输入从以太坊账号进入etherboost的充值数量，再点“充值”。',
     fr: 'Pour déposer, cliquer sur "Deposit" tab, choisir un jeton, entrer le montant à déposer depuis votre compte Ethereum vers Etherdelta, puis cliquer "Deposit".',
     es: 'Para abonar, haga clic en la pestaña "depósito", elegir un modo, ingrese la cantidad a depositar desde su cuenta a Etereum Etherdelta y haga clic en "depósito.',
   },
@@ -102111,10 +102112,10 @@ module.exports = {
     es: 'Es posible que el comercio un símbolo que no aparece en la lista, seleccione "Otros" y rellena los campos del formulario. Differentes simbolicos tienen differentes multiplicadores, es pues indispensable cumplir el formulario con cuidado.',
   },
   trade_3: {
-    en: 'TokenEther supports resting orders (adding liquidity) and trading against existing resting orders (taking liquidity).',
-    cn: 'TokenEther支持“待定下单”（resting order）来增加流动性，以及交易“待定下单”来减少流动性。',
-    fr: "TokenEther supportes les ordres restant (l'ajout de liquidite) et marchander contre des ordres restant (prise de liquidite).",
-    es: 'TokenEther apoya descansando órdenes tales como la adición de liquidez y el comercio contre órdenes existentes como descansando Tomando liquidez..',
+    en: 'etherboost supports resting orders (adding liquidity) and trading against existing resting orders (taking liquidity).',
+    cn: 'etherboost支持“待定下单”（resting order）来增加流动性，以及交易“待定下单”来减少流动性。',
+    fr: "etherboost supportes les ordres restant (l'ajout de liquidite) et marchander contre des ordres restant (prise de liquidite).",
+    es: 'etherboost apoya descansando órdenes tales como la adición de liquidez y el comercio contre órdenes existentes como descansando Tomando liquidez..',
   },
   trade_4: {
     en: 'To create a resting order, fill out the "Buy" or "Sell" form at the top of the page. The order expires in the number of blocks you specify (1 block &#8776; 15 seconds).',
@@ -102129,8 +102130,8 @@ module.exports = {
     es: 'Si desea cancelar su pedido, simplemente haga clic en su pedido aparecerá en el libro de órdenes y pulse el botón "Cancelar". Esto enviará una transacción Ethereum, una vez confirmada, canceló la orden. Cabe señalar que induce un coste de gas (Tarifas de transacción Ethereum), mientras que la colocación de un pedido restante hasta su expiración no cuesta de gas.',
   },
   trade_6: {
-    en: 'When you submit a resting order, it gets broadcast to the world. The current broadcast channel is a Gitter chat room, but TokenEther also supports using Ethereum events as a fallback broadcast mechanism.',
-    cn: '但你提交了一个“待定下单”后，它会广播到全球。现在的传播渠道是Gitter聊天室，但是TokenEther也支持以太坊事件机制，用来保底。',
+    en: 'When you submit a resting order, it gets broadcast to the world. The current broadcast channel is a Gitter chat room, but etherboost also supports using Ethereum events as a fallback broadcast mechanism.',
+    cn: '但你提交了一个“待定下单”后，它会广播到全球。现在的传播渠道是Gitter聊天室，但是etherboost也支持以太坊事件机制，用来保底。',
     fr: "Quand vous soumettez un ordre restant, il se diffuse dans le monde entier. Le canal de causerie principal s'appele Gitter chat room, mais Etherdelta supporte egalement des evenements ethereum en tant que moyen de diffusion alternative.",
     es: 'Cuando se envía una orden de reposo, que se transmitió al mundo. El canal de difusión actual es una sala de chat Gitter, Etherdelta también promueve eventos Ethereum como un medio alternativo de distribución.',
   },
@@ -102141,10 +102142,10 @@ module.exports = {
     es: 'La interfaz gráfica de usuario detecta nuevos pedidos recibidos y que se muestran en el libro de orden (izquierda venta, compra derecha).',
   },
   trade_8: {
-    en: 'A resting order represents a cryptographically signed intent to trade. Up until your order expires or is cancelled, anyone who has seen it can trade against it, assuming both traders have enough funds in their TokenEther accounts. The GUI filters out orders that do not have funds to back them up. Partial fills are supported.',
+    en: 'A resting order represents a cryptographically signed intent to trade. Up until your order expires or is cancelled, anyone who has seen it can trade against it, assuming both traders have enough funds in their etherboost accounts. The GUI filters out orders that do not have funds to back them up. Partial fills are supported.',
     cn: '“待定下单”代表加密签名过的交易意向。在你的订单过期或取消以前，看见这个订单的任何人可以与它交易（前提是双方账号中有足够的币）。页面会过滤掉币的数量不够的订单。订单也可以部分成交。',
-    fr: "Un ordre restant represente une intention de commercer cryptographiquement signée. Jusqu'à ce que votre commande expire ou soit annulée, quiconque l'a vu peut échanger contre elle, en supposant que les deux commerçants disposent de suffisamment de fonds dans leurs comptes TokenEther. Le remplissage partiel de l'ordre est egalement supporte.",
-    es: 'Una orden restante representa intención de negociar, firmado criptográficamente. Hasta que el pedido se cancela o expira, cualquiera puede intercambiar sierra en contra de ella, suponiendo que ambos operadores tienen fondos suficientes en sus cuentas TokenEther. También se admite el llenado parcial de la orden.',
+    fr: "Un ordre restant represente une intention de commercer cryptographiquement signée. Jusqu'à ce que votre commande expire ou soit annulée, quiconque l'a vu peut échanger contre elle, en supposant que les deux commerçants disposent de suffisamment de fonds dans leurs comptes etherboost. Le remplissage partiel de l'ordre est egalement supporte.",
+    es: 'Una orden restante representa intención de negociar, firmado criptográficamente. Hasta que el pedido se cancela o expira, cualquiera puede intercambiar sierra en contra de ella, suponiendo que ambos operadores tienen fondos suficientes en sus cuentas etherboost. También se admite el llenado parcial de la orden.',
   },
   trade_9: {
     en: 'To trade against an existing resting order, click "Buy" or "Sell" next to it in the order book and type in the volume you want to trade. The GUI will do one last check that the trade can cross (the funds are there and the order hasn\'t already traded), but if someone submits a transaction right before you do, your Ethereum transaction will fail because the order already traded.',
