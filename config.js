@@ -1,11 +1,12 @@
 /* eslint-env browser */
 
 module.exports = {
-  homeURL: 'https://tokenether.github.io/',
+  homeURL: 'https://ami-solution.github.io/etherboost',
   contractDecentrEx: 'smart_contract/tokenether.sol',
   contractToken: 'smart_contract/token.sol',
   contractReserveToken: 'smart_contract/reservetoken.sol',
   contractDecentrExAddrs: [
+    { "addr": "0x8d12a197cb00d4747a1fe03395095ce2a5cc6819", "info": "Deployed 02/09/2017 -- THE CURRENT SMART CONTRACT" },
     { addr: '0xbca13cbebff557143e8ad089192380e9c9a58c70', info: 'Deployed 08/10/2017' },
   ],
   ethTestnet: false,
@@ -18,17 +19,18 @@ module.exports = {
   gasWithdraw: 250000,
   gasTrade: 250000,
   gasOrder: 250000,
+  minOrderSize: 0.001,
   ordersOnchain: false,
-  apiServer: 'https://tokenether.github.io/',
-  userCookie: 'TokenEther',
-  eventsCacheCookie: 'TokenEther_eventsCache',
-  deadOrdersCacheCookie: 'TokenEther_deadOrdersCache',
-  ordersCacheCookie: 'TokenEther_ordersCache',
-  etherscanAPIKey: 'SCYVG55I4EYS4JJ82NYMV87MGDGVNNZJ49',
+  apiServer: 'https://api.forkdelta.com/',
+  userCookie: 'EtherDelta',
+  eventsCacheCookie: 'EtherDelta_eventsCache',
+  ordersCacheCookie: 'EtherDelta_ordersCache',
+  etherscanAPIKey: 'GCGR1C9I17TYIRNYUDDEIJH1K5BRPH4UDE',
   tokens: [
     { addr: '0x0000000000000000000000000000000000000000', name: 'ETH', decimals: 18 },
     { addr: '0xd0d6d6c5fe4a677d343cc433536bb717bae167dd', name: 'ADT', decimals: 9 },
     { addr: '0x4470bb87d77b963a013db939be332f927f2b992e', name: 'ADX', decimals: 4 },
+    { addr: '0x949bed886c739f1a3273629b3320db0c5024c719', name: 'AMIS', decimals: 9 },
     { addr: '0x960b236a07cf122663c4303350609a66a7b288c0', name: 'ANT', decimals: 18 },
     { addr: '0xac709fcb44a43c35f0da4e3163b117a17f3770f5', name: 'ARC', decimals: 18 },
     { addr: '0xaf30d2a7e90d7dc361c8c4585e9bb7d2f6f15bc7', name: '1ST', decimals: 18 },
@@ -84,14 +86,14 @@ module.exports = {
     { addr: '0x5c543e7ae0a1104f78406c340e9c64fd9fce5170', name: 'VSL', decimals: 18 },
     { addr: '0x667088b212ce3d06a1b553a7221e1fd19000d9af', name: 'WINGS', decimals: 18 },
     { addr: '0x4df812f6064def1e5e029f1ca858777cc98d2d81', name: 'XAUR', decimals: 8 },
-    { addr: '0xb24754be79281553dc1adc160ddf5cd9b74361a4', name: 'XRL', decimals: 9 },
-    { addr: '0x949bed886c739f1a3273629b3320db0c5024c719', name: 'AMIS', decimals: 9 }
+    { addr: '0xb24754be79281553dc1adc160ddf5cd9b74361a4', name: 'XRL', decimals: 9 }
 
   ],
-  defaultPair: { token: 'ANT', base: 'ETH' },
+  defaultPair: { token: 'AMIS', base: 'ETH' },
   pairs: [
     { token: 'ADT', base: 'ETH' },
     { token: 'ADX', base: 'ETH' },
+    { token: 'AMIS', base: 'ETH' },
     { token: 'ANT', base: 'ETH' },
     { token: 'ARC', base: 'ETH' },
     { token: '1ST', base: 'ETH' },
@@ -147,7 +149,6 @@ module.exports = {
     { token: 'VSL', base: 'ETH' },
     { token: 'WINGS', base: 'ETH' },
     { token: 'XAUR', base: 'ETH' },
-    { token: 'XRL', base: 'ETH' },
-    { token: 'AMIS', base: 'ETH' },
+    { token: 'XRL', base: 'ETH' }
   ],
 };
